@@ -1,0 +1,176 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/09/2019  21:41:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\MDK\INSTALL\CORE\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Timer PRINT (.\Listings\Timer.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\MDK\INSTALL\CORE\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\MDK\INSTALL\CORE\C51\LIB\C51S.LIB (?C?UIDIV)
+  E:\MDK\INSTALL\CORE\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Timer (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?MAIN
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     0055H     UNIT         ?C?LIB_CODE
+            CODE    00EFH     0052H     UNIT         ?PR?TM0_ISR?MAIN
+            CODE    0141H     001FH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0160H     0019H     UNIT         ?PR?_SENDBYTE_74HC164?MAIN
+            CODE    0179H     0014H     UNIT         ?PR?MAIN?MAIN
+            CODE    018DH     0013H     UNIT         ?PR?CONFIGTIMEINT0?MAIN
+            CODE    01A0H     000CH     UNIT         ?C_INITSEG
+            CODE    01ACH     000AH     UNIT         ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Timer (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?CONFIGTIMEINT0?MAIN
+  +--> ?PR?_SENDBYTE_74HC164?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+?PR?_SENDBYTE_74HC164?MAIN
+  +--> ?CO?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/09/2019  21:41:25  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Timer (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:0141H         PUBLIC        _delay
+  C:0160H         PUBLIC        _SendByte_74HC164
+  D:00B8H         PUBLIC        IP
+  C:0179H         PUBLIC        main
+  D:0008H         PUBLIC        count
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:000AH         PUBLIC        LOOP
+  C:01ACH         PUBLIC        table1
+  D:008EH         PUBLIC        AUXR
+  C:00EFH         PUBLIC        tm0_isr
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:000BH         PUBLIC        num
+  B:0088H.4       PUBLIC        TR0
+  B:00B0H.0       PUBLIC        DAT
+  B:00B0H.1       PUBLIC        CLK
+  D:00C8H         PUBLIC        T2CON
+  C:018DH         PUBLIC        configTimeInt0
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        mstime
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0141H         LINE#         27
+  C:0141H         LINE#         28
+  C:0141H         LINE#         30
+  C:0149H         LINE#         31
+  C:015FH         LINE#         32
+  -------         ENDPROC       _DELAY
+  -------         PROC          _SENDBYTE_74HC164
+  D:0007H         SYMBOL        byte
+  -------         DO            
+  D:0007H         SYMBOL        num
+  D:0006H         SYMBOL        c
+  -------         ENDDO         
+  C:0160H         LINE#         44
+  C:0160H         LINE#         45
+  C:0160H         LINE#         48
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/09/2019  21:41:25  PAGE 3
+
+
+  C:0166H         LINE#         53
+  C:0168H         LINE#         54
+  C:0168H         LINE#         55
+  C:016CH         LINE#         56
+  C:016EH         LINE#         57
+  C:0170H         LINE#         58
+  C:0174H         LINE#         59
+  C:0178H         LINE#         60
+  -------         ENDPROC       _SENDBYTE_74HC164
+  -------         PROC          CONFIGTIMEINT0
+  C:018DH         LINE#         73
+  C:018DH         LINE#         74
+  C:018DH         LINE#         75
+  C:0190H         LINE#         76
+  C:0193H         LINE#         77
+  C:0196H         LINE#         78
+  C:0199H         LINE#         79
+  C:019BH         LINE#         80
+  C:019DH         LINE#         81
+  C:019FH         LINE#         82
+  -------         ENDPROC       CONFIGTIMEINT0
+  -------         PROC          TM0_ISR
+  C:00EFH         LINE#         93
+  C:0102H         LINE#         96
+  C:0105H         LINE#         97
+  C:0108H         LINE#         99
+  C:0115H         LINE#         100
+  C:0115H         LINE#         101
+  C:011AH         LINE#         103
+  C:0122H         LINE#         104
+  C:0130H         LINE#         109
+  C:0130H         LINE#         111
+  -------         ENDPROC       TM0_ISR
+  -------         PROC          MAIN
+  C:0179H         LINE#         116
+  C:0179H         LINE#         117
+  C:0179H         LINE#         118
+  C:017CH         LINE#         119
+  C:017FH         LINE#         120
+  C:017FH         LINE#         121
+  C:017FH         LINE#         122
+  C:0184H         LINE#         123
+  C:018BH         LINE#         124
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?UIDIV
+  C:009AH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=14.0 xdata=0 code=430
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
